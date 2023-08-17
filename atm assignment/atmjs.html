@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let accountBalance = 25000;
+      let atmPin = 1738;
+
+      let inputPin = +prompt("Please enter your pin");
+      if (inputPin === atmPin) {
+        alert(`Welcome to fidelity bank ATM,click OK to continue`);
+        let atm = prompt(`What will you like to do?
+        1. Withdrawal
+        2. Deposit
+        3. Transfer
+        4. Check Balance
+        `);
+
+        if (atm == 1) {
+          let withdrawal =
+            +prompt(`Please select the amount you want to withdraw
+            1. 500         5. 15000
+            2. 1000        6. 20000
+            3. 5000        7. 30000
+            4. 10000       8. Others 
+           `);
+
+          if (
+            withdrawal === 1 ||
+            withdrawal === 2 ||
+            withdrawal === 3 ||
+            withdrawal === 4 ||
+            withdrawal === 5 ||
+            withdrawal === 6 ||
+            withdrawal === 7
+          ) {
+            alert("Processing transaction");
+            alert("Please take your cash");
+            confirm(`Do you want to perform another transaction
+                1. Yes
+                2. No
+                `);
+          } else if (withdrawal === 8) {
+            let userAmount = +prompt("Enter amount");
+            if (userAmount > 0 && typeof userAmount === "number") {
+              alert("Processing transaction");
+              alert("Please take your cash " + userAmount);
+              confirm(`Do you want to perform another transaction
+                1. Yes
+                2. No
+                `);
+            } else {
+              alert("Invalid request");
+            }
+          } else {
+            alert("Enter a valid value");
+          }
+        } else if (atm === 2) {
+          let deposit = +prompt("Please enter the amount to deposit");
+          accountBalance += deposit;
+          alert(`Your new account balance is ${accountBalance}`);
+        } else if(atm === 3) {
+            alert(`Feature coming soon`);
+        } else if(atm === 4) {
+            alert(`Your account balance is ${accountBalance}`)
+        }
+      } else {
+        alert("Enter your correct pin");
+      }
+    </script>
+  </body>
+</html>
